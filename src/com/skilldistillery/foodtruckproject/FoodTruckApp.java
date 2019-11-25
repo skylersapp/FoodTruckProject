@@ -21,14 +21,19 @@ package com.skilldistillery.foodtruckproject;
 // After choosing a menu item, the user sees the menu again and can choose another item until the choose to quit.
 
 public class FoodTruckApp {
+	
+	// FIELDS
+	
+	// CONSTRUCTORS
+	
+	// METHODS
 
 	public static void main(String[] args) {
 		System.out.println(
-				"Please enter up to five Food Trucks by name, the type of food, and your numerical review of them (0-5). ");
-		System.out.println("HELPME!!!");
+				"\nPlease enter up to five Food Trucks by name, the type of food, and your numerical review of them (0-5). ");
+		System.out.println("You can also quit entering trucks by typing \"QUIT\" for any truck name. ");
 		Trucks trucks = new Trucks();
 		trucks.userInput();
-		System.out.println("HELPME!!!");
 		trucks.userMenu();
 		
 	}

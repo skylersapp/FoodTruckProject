@@ -12,9 +12,12 @@ public class Trucks {
 	private String truckName;
 	private String foodType;
 	private int truckRating;
-	private Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
+//	private Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
 
 	// CONSTRUCTORS
+
+	public Trucks() {
+	}
 
 	public Trucks(String truckName, String foodType, int truckRating, int truckID) {
 		this.truckName = truckName;
@@ -25,9 +28,6 @@ public class Trucks {
 
 	// METHODS
 
-	public Trucks() {
-	}
-
 	public String getTruckName() {
 		return truckName;
 	}
@@ -36,16 +36,16 @@ public class Trucks {
 		this.truckName = truckName;
 	}
 
-	public int getTruckRating() {
-		return truckRating;
-	}
-
 	public String getFoodType() {
 		return foodType;
 	}
 
 	public void setFoodType(String foodType) {
 		this.foodType = foodType;
+	}
+
+	public int getTruckRating() {
+		return truckRating;
 	}
 
 	public void setTruckRating(int truckRating) {
@@ -61,13 +61,14 @@ public class Trucks {
 	}
 
 	public void userInput() {
-
 		for (int i = 0; i < truckList.length; i++) {
+			Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
+			int nonZero = (i + 1);
+			System.out.print("Truck " + nonZero + ": ");
 
-			System.out.print("Truck " + (i + 1) + ": ");
 			truckName = sc.next().toUpperCase();
 			if (!truckName.equals("QUIT")) {
-				t.setTruckID(i + 1);
+				t.setTruckID(nonZero);
 				t.setTruckName(truckName);
 
 				System.out.print("Food Type " + (i + 1) + ": ");
@@ -78,7 +79,7 @@ public class Trucks {
 				truckRating = sc.nextInt();
 				t.setTruckRating(truckRating);
 
-				t = truckList[i];
+				truckList[i] = t;
 			} else {
 				break;
 			}
@@ -87,8 +88,8 @@ public class Trucks {
 	}
 
 	public void userMenu() {
-//		int userSelect = 1;
 		boolean keepGoing = true;
+
 		while (keepGoing == true) {
 			System.out.println("\n-----| MENU |-----\n");
 			System.out.println("1) List all existing food trucks.\n" + "2) See the average rating of food trucks.\n"
@@ -98,13 +99,13 @@ public class Trucks {
 			do {
 				if (userSelect == 1) {
 					listTrucks();
-					continue;
+					break;
 				} else if (userSelect == 2) {
 					averageRating();
-					continue;
+					break;
 				} else if (userSelect == 3) {
 					highestRated();
-					continue;
+					break;
 				} else if (userSelect == 4) {
 					System.out.println("Thank you for for your time!\nHave a great day!");
 					keepGoing = false;
@@ -121,38 +122,47 @@ public class Trucks {
 	public void listTrucks() {
 		for (int i = 0; i < truckList.length; i++) {
 			if (truckList[i] != null) {
-				System.out.println(t.toString());
+				System.out.println(truckList[i].toString());
+				//break;
+			}else {
+				break;
 			}
 		}
 	}
 
 	public void averageRating() {
 		double averageRating = 0.0;
+		int counter = 0;
+		
 		for (int i = 0; i < truckList.length; i++) {
-			if (truckList[i] != null) {
-				averageRating = ((t.getTruckRating() + averageRating) / i);
+			if (truckList[i] == null) {
+				break;
 			}
-			System.out.println("Average Rating: " + averageRating);
+			counter++;
+			averageRating = ((truckList[i].getTruckRating() + averageRating));
 		}
+		averageRating = averageRating/counter;
+		System.out.println("Average Rating: " + averageRating);
 	}
 
 	public void highestRated() {
+		//Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
 		for (int i = 0; i < truckList.length; i++) {
 			if (truckList[i] != null) {
-				if (t.getTruckRating() == 5) {
-					System.out.println(t.getTruckName());
+				if (truckList[i].getTruckRating() == 5) {
+					System.out.println(truckList[i].getTruckName());
 					break;
-				} else if (t.getTruckRating() >= 4) {
-					System.out.println(t.getTruckName());
+				} else if (truckList[i].getTruckRating() >= 4) {
+					System.out.println(truckList[i].getTruckName());
 					break;
-				} else if (t.getTruckRating() >= 3) {
-					System.out.println(t.getTruckName());
+				} else if (truckList[i].getTruckRating() >= 3) {
+					System.out.println(truckList[i].getTruckName());
 					break;
-				} else if (t.getTruckRating() >= 2) {
-					System.out.println(t.getTruckName());
+				} else if (truckList[i].getTruckRating() >= 2) {
+					System.out.println(truckList[i].getTruckName());
 					break;
 				} else {
-					System.out.println(t.getTruckName());
+					System.out.println(truckList[i].getTruckName());
 					break;
 				}
 
@@ -162,6 +172,7 @@ public class Trucks {
 
 	@Override
 	public String toString() {
+		Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
 		return ("Truck ID: T" + t.getTruckID() + ", Truck Name: " + t.getTruckName() + ", Truck Rating: "
 				+ t.getTruckRating() + "\n");
 	}
