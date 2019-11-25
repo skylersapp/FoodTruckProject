@@ -12,7 +12,6 @@ public class Trucks {
 	private String truckName;
 	private String foodType;
 	private int truckRating;
-//	private Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
 
 	// CONSTRUCTORS
 
@@ -146,18 +145,16 @@ public class Trucks {
 	}
 
 	public void highestRated() {
-		Integer minValue = Integer.MIN_VALUE;
-		int largestNum = 0;
+		//Integer minValue = ;
+		int largestNum = Integer.MIN_VALUE;
 		String highestTruck = "";
 
-		// for (int i = 0; i < truckList.length; i++) {
 		for (Trucks trucks : truckList) {
 
 			if (trucks != null) {
-				if (trucks.getTruckRating() > minValue) {
+				if (trucks.getTruckRating() > largestNum) {
 					largestNum = trucks.getTruckRating();
 					highestTruck = trucks.getTruckName();
-
 				}
 			} else {
 				continue;
@@ -171,7 +168,7 @@ public class Trucks {
 	public String toString() {
 		Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
 		return ("Truck ID: T" + t.getTruckID() + ", Truck Name: " + t.getTruckName() + ", Truck Food Type: "
-				+ t.getTruckID() + ", Truck Rating: " + t.getTruckRating() + "\n");
+				+ t.getFoodType() + ", Truck Rating: " + t.getTruckRating() + "\n");
 	}
 
 }
