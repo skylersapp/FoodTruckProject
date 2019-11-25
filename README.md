@@ -35,8 +35,24 @@
 
 ## Concepts
 
+* for loops
+* do-while loops
+* OOP
+* if statements
+* multiple methods
+* multiple classes
+* arrays
+* 
+
 ## Technologies used
+
+![Alt Text](http://blog.experts-exchange.com/wp-content/uploads/2012/02/java1.jpg)![Alt Text](http://www.techgeekbuzz.com/wp-content/uploads/2019/03/Eclipse-IDE-300x300.png)![Alt Text](https://4.bp.blogspot.com/-wLNezXDnu_M/WW9FPRuPcZI/AAAAAAAAIfQ/Une2gqnpf3kI2bEIaC8UHQmy93NmOqGBwCLcBGAs/s1600/atom.jpg)![Alt Text](https://i.pinimg.com/originals/27/66/71/276671da1ccff650e3e51a425d52fbda.png)
 
 ## Challenges
 
+I felt "behind" the entire week leading up to this project, so getting through it really took me a significantly larger amount of 
+studying and re-learning than I would have liked. I also had to fight with my loops in order to get the exact output I was looking for. 
+
 ## Lessons Learned
+
+Code definitely looks cleaner and is far more scalable when using multiple classes and methods. Object creation was a sticking point for me coming into this project, but I feel like I've really improved my knowledge of the concept. I still have room for improvement, but I feel like that will honestly be the case with the majority of Java throughout my career. 
