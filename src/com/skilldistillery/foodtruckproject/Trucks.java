@@ -152,7 +152,8 @@ public class Trucks {
 			if (trucks != null) {
 				if (trucks.getTruckRating() > largestNum) {
 					largestNum = trucks.getTruckRating();
-					highestTruck = trucks.getTruckName();
+					highestTruck = trucks.toString();
+					
 				}
 			} else {
 				continue;
