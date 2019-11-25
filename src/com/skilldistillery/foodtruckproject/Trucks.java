@@ -71,7 +71,7 @@ public class Trucks {
 				t.setTruckName(truckName);
 
 				System.out.print("Food Type " + (i + 1) + ": ");
-				foodType = sc.next();
+				foodType = sc.next().toUpperCase();
 				t.setFoodType(foodType);
 
 				System.out.print("Rating " + (i + 1) + ": ");
@@ -122,7 +122,6 @@ public class Trucks {
 		for (int i = 0; i < truckList.length; i++) {
 			if (truckList[i] != null) {
 				System.out.println(truckList[i].toString());
-				// break;
 			} else {
 				break;
 			}
@@ -145,7 +144,6 @@ public class Trucks {
 	}
 
 	public void highestRated() {
-		//Integer minValue = ;
 		int largestNum = Integer.MIN_VALUE;
 		String highestTruck = "";
 

@@ -42,7 +42,9 @@
 * multiple methods
 * multiple classes
 * arrays
-* 
+* indexing
+* MIN_/MAX_VALUE usage
+* boolean statements 
 
 ## Technologies used
 
