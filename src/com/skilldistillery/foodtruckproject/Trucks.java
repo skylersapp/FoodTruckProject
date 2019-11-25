@@ -123,8 +123,8 @@ public class Trucks {
 		for (int i = 0; i < truckList.length; i++) {
 			if (truckList[i] != null) {
 				System.out.println(truckList[i].toString());
-				//break;
-			}else {
+				// break;
+			} else {
 				break;
 			}
 		}
@@ -133,7 +133,7 @@ public class Trucks {
 	public void averageRating() {
 		double averageRating = 0.0;
 		int counter = 0;
-		
+
 		for (int i = 0; i < truckList.length; i++) {
 			if (truckList[i] == null) {
 				break;
@@ -141,40 +141,37 @@ public class Trucks {
 			counter++;
 			averageRating = ((truckList[i].getTruckRating() + averageRating));
 		}
-		averageRating = averageRating/counter;
+		averageRating = averageRating / counter;
 		System.out.println("Average Rating: " + averageRating);
 	}
 
 	public void highestRated() {
-		//Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
-		for (int i = 0; i < truckList.length; i++) {
-			if (truckList[i] != null) {
-				if (truckList[i].getTruckRating() == 5) {
-					System.out.println(truckList[i].getTruckName());
-					break;
-				} else if (truckList[i].getTruckRating() >= 4) {
-					System.out.println(truckList[i].getTruckName());
-					break;
-				} else if (truckList[i].getTruckRating() >= 3) {
-					System.out.println(truckList[i].getTruckName());
-					break;
-				} else if (truckList[i].getTruckRating() >= 2) {
-					System.out.println(truckList[i].getTruckName());
-					break;
-				} else {
-					System.out.println(truckList[i].getTruckName());
-					break;
-				}
+		Integer minValue = Integer.MIN_VALUE;
+		int largestNum = 0;
+		String highestTruck = "";
 
+		// for (int i = 0; i < truckList.length; i++) {
+		for (Trucks trucks : truckList) {
+
+			if (trucks != null) {
+				if (trucks.getTruckRating() > minValue) {
+					largestNum = trucks.getTruckRating();
+					highestTruck = trucks.getTruckName();
+
+				}
+			} else {
+				continue;
 			}
 		}
+		System.out.println(highestTruck);
+
 	}
 
 	@Override
 	public String toString() {
 		Trucks t = new Trucks(truckName, foodType, truckRating, truckID);
-		return ("Truck ID: T" + t.getTruckID() + ", Truck Name: " + t.getTruckName() + ", Truck Rating: "
-				+ t.getTruckRating() + "\n");
+		return ("Truck ID: T" + t.getTruckID() + ", Truck Name: " + t.getTruckName() + ", Truck Food Type: "
+				+ t.getTruckID() + ", Truck Rating: " + t.getTruckRating() + "\n");
 	}
 
 }
